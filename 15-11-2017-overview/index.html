@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- This meta tag is important to make sure your website looks good on phones or tablets -->
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible"
+          content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            /* We are telling the browser to use the system font for different systems */
+            /* Each font that follows is a fallback. Example - If -apple-system fails, try to load BlinkMacSystemFont and so on*/
+            /* Finally, if nothing works, load whatever is the sans-serif font defined in the Operating System/Browser */
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            /* Building a grid for our components */
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            grid-template-areas: 
+                "header header" 
+                "content sidebar" 
+                "footer footer";
+            
+            /* Removing the default margin set on body */
+            margin: 0;
+
+            /* Making sure our page has at least the height of our viewport */
+            /* That is, the viewable aera in a browser */
+            min-height: 100vh;
+
+            /* Uncomment the following ff you want to center all content to a max width */
+            /*This will make sure the page can't grow beyond 960px width but can shrink*/
+            /* max-width: 960px; */
+            /* margin: auto; */
+        }
+
+        .header {
+            /* Saying the element in HTML with the class header, goes to the header area of the defined grid. */
+            grid-area: header;
+            background: #333;
+            color: #fff;
+            padding: 10px;
+        }
+
+        .sidebar {
+            grid-area: sidebar;
+            background: #eeeeee;
+        }
+
+        .footer {
+            grid-area: footer;
+            background: #ccc;
+            border-top: 2px solid;
+            padding: 10px;
+        }
+
+        /* Conent Section Styles */
+        .content {
+            grid-area: content;
+            padding: 10px;
+        }
+
+        .content p {
+            line-height: 24px;
+            margin-bottom: 48px;
+        }
+
+        .content img {
+            display: block;
+            /* This max-width value makes sure the image is responsive */
+            /* So even if we have a way larger image, it's gonna be resized as the 90% of the content area at max. */
+            max-width: 90%;
+            border: 4px solid #000;
+            margin: 10px auto;
+        }
+
+        /* This is where we change the layout once we are on a tablet or smaller device */
+        /* Resize your browser to see this happening or open on mobile */
+        @media screen and (max-width: 767px) {
+
+            /* We change the body grid for the new layout */
+            body {
+                /* We switch to one column layout*/
+                grid-template-columns: 1fr;
+                /* Different parts of the application come one after another. This makes it mobile friendly layout */
+                grid-template-areas: 
+                    "header"
+                    "sidebar"
+                    "content"
+                    "footer";
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Semantics is important. We could use a div with a class called header but there's a better tag to describe header. So we use that -->
+    <header class="header">
+        <h1>Awesome Web Developer</h1>
+    </header>
+    <article class="content">
+        <h2>Some Post</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti eos, veritatis tenetur natus blanditiis nam numquam
+            maiores nesciunt est necessitatibus voluptas voluptatibus maxime, molestiae sint explicabo nihil modi distinctio!
+            Fuga.
+            <!-- The alt acts like a fallback. So if the image failed to load, the alt text will be shown -->
+            <img src="http://via.placeholder.com/800x400" alt="Images are good when they have alt">
+        </p>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. In ut veritatis aut earum, nemo facilis sit eos pariatur laboriosam autem, ad recusandae fuga quo? Sapiente incidunt voluptate culpa eveniet quis.
+        </p>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. In minus vel debitis placeat! Eligendi perferendis adipisci
+            repudiandae libero minima exercitationem vero blanditiis inventore, placeat saepe provident dolorem eveniet expedita
+            iure atque quis fuga in maiores nam, ipsa velit eius quasi minus soluta. Dignissimos facere iusto aspernatur
+            nihil. Cupiditate minus quam debitis rerum quas laboriosam sit fugit aliquid, minima excepturi asperiores deleniti
+            odit quis quos. Doloribus placeat accusantium dolorum aperiam accusamus exercitationem autem assumenda consequatur
+            fugit nemo! Voluptatibus delectus perspiciatis assumenda ducimus iusto non saepe dicta? Quidem itaque quibusdam
+            culpa, veniam, nesciunt soluta debitis facilis quos, magnam nulla sunt quisquam tempore ab! Voluptatem, illum.
+            Tempora, saepe fugit. Commodi a minus sequi pariatur facilis ducimus delectus dolor, optio nostrum labore quis
+            ipsam voluptatibus provident veniam voluptate et, impedit ea nemo ipsa soluta maxime dignissimos neque consectetur.
+            Corrupti nam a odit doloremque asperiores rerum facere dolorem non earum esse voluptas ipsum autem natus recusandae
+            debitis, eum nisi voluptatibus. Ratione sint nisi velit iste nihil placeat animi nam vitae voluptate, consectetur
+            minima hic beatae officia. Odit nam itaque ut molestiae quos cum, non optio officia odio error assumenda nobis
+            ea perspiciatis suscipit quam fugit. Reprehenderit aperiam minima esse error. Odio sapiente repudiandae nobis
+            atque?
+        </p>
+    </article>
+    <aside class="sidebar">
+        <ul>
+            <li>
+                <a href="#">Link 1</a>
+            </li>
+            <li>
+                <a href="#">Link 2</a>
+            </li>
+            <li>
+                <a href="#">Link 3</a>
+            </li>
+            <li>
+                <a href="#">Link 4</a>
+            </li>
+            <li>
+                <a href="#">Link 5</a>
+            </li>
+        </ul>
+    </aside>
+    <footer class="footer">
+        &copy; IIIT Hyderabad
+    </footer>
+
+</body>
+
+</html>
